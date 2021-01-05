@@ -22,6 +22,12 @@
 		회사(company) : <input type="text" name="company"> <br>
 		<button type="submit">등록</button>
 	</form>
+	
+	<!-- 
+		*전달방식
+		get : 주소창에 입력 데이터(파라미터)가 나타남
+		post : 파라미터 있는 건 위와 같지만 주소창에 입력 데이터가 나타나지 않음
+	 -->
 
 </body>
 </html>

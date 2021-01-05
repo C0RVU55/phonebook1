@@ -253,5 +253,49 @@ public class PhoneDao {
 		return pList;
 
 	}
+	
+	// *********사람 1명 정보 가져오기*********
+	public PhoneVo getPerson(int personId) {
+		PhoneVo pVo = null; // for문 안에 있어서 return할 게 없으니까 초기값 정해줌.
+		
+		getConnection();
+		
+		try {
+			String query = "";
+			query += " SELECT  person_id, ";
+			query += "         name, ";
+			query += "         hp, ";
+			query += "         company ";
+			query += " FROM person ";
+			query += " where person_id = ? ";
+			
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setInt(1, personId);
+			
+			rs = pstmt.executeQuery();
+			
+			// 결과처리
+			while(rs.next()) {
+				int personID = rs.getInt("person_id");
+				String name = rs.getString("name");
+				String hp = rs.getString("hp");
+				String company = rs.getString("company");
+				
+				pVo = new PhoneVo(personID, name, hp, company);
+			}
+		
+			
+		} catch (Exception e) {
+			System.out.println("error:" + e);
+		}
+		
+		close();
+		
+		return pVo;
+
+
+		
+	}
 
 }

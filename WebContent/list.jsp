@@ -41,7 +41,7 @@
 		<table border="1">
 			<tr>
 				<td>이름(name)</td>
-				<td><%=pList.get(i).getName() %></td>
+				<td>(<%=pList.get(i).getPersonId() %>) <%=pList.get(i).getName() %></td> <%--이름 옆에 personId 추가 --%>
 			</tr>
 			<tr>
 				<td>핸드폰(hp)</td>
@@ -50,6 +50,11 @@
 			<tr>
 				<td>회사(company)</td>
 				<td><%=pList.get(i).getCompany() %></td>
+			</tr>
+			<tr>
+				<td><a href="./updateForm.jsp?id=<%=pList.get(i).getPersonId() %>">수정</a></td>
+				<td><a href="./delete.jsp?id=<%=pList.get(i).getPersonId() %>">[삭제]</a></td> 
+				<%--이름에 personId 추가하고 삭제 누르면 해당 숫자가 들어가서 delete.jsp가 실행되게 해야 됨 --%>
 			</tr>
 		</table>
 		<br>
